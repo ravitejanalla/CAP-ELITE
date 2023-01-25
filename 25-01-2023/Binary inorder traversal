@@ -1,0 +1,21 @@
+public class Solution {
+    List<Integer> result = new ArrayList<Integer>();
+ 
+    public List<Integer> inorderTraversal(TreeNode root) {
+        if(root !=null){
+            inorder(root);
+        }
+ 
+        return result;
+    }
+ 
+    public void inorder(TreeNode data){
+        if(data.left!=null)
+            inorder(data.left);
+ 
+        result.add(data.val);
+ 
+        if(data.right!=null)
+            inorder(data.right);
+    }
+}
