@@ -1,0 +1,25 @@
+// binary level order traversal
+class Solution {
+      List<List<Integer>> result;
+    public List<List<Integer>> levelOrder(TreeNode node) {
+         result= new ArrayList<>();
+        if(node==null){
+            return result;
+        }
+     
+        ordertraversal(node,0);
+
+     return result;
+        
+    }
+    public void ordertraversal(TreeNode root,int level){
+        if(root==null) return;
+        if(result.size()==level){
+            result.add(new ArrayList<>());
+        }
+        result.get(level).add(root.val);
+        ordertraversal(root.left,level+1);
+         ordertraversal(root.right,level+1);
+    }
+ 
+}
