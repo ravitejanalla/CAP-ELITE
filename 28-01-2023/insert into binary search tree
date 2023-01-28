@@ -1,0 +1,28 @@
+// binary search insertion
+class Solution {
+    public TreeNode insertIntoBST(TreeNode root, int val) {
+        TreeNode n = new TreeNode(val);
+        if(root==null){
+            root=n;
+        }
+        TreeNode cur = root;
+        TreeNode p=null;
+        while(cur != null){
+            if(val<cur.val){
+                p=cur;
+                cur=cur.left;
+            }
+            else{
+                p=cur;
+                cur=cur.right;
+            }
+        }
+        if(val<p.val){
+            p.left=n;
+        }
+        if(val>p.val){
+            p.right=n;
+        }
+        return root;
+    }
+}
