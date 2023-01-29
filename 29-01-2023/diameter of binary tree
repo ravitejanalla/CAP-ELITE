@@ -1,0 +1,15 @@
+//diameter of binary tree
+class Solution {
+    public int diameterOfBinaryTree(TreeNode root) {
+        if(root==null) return 0;
+        int left=diameterOfBinaryTree(root.left);
+        int right=diameterOfBinaryTree(root.right);
+        return Math.max(height(root.left)+height(root.right),
+        Math.max(left,right));
+    }
+    public int height(TreeNode node){
+        if(node==null)
+         return 0;
+        return 1+ Math.max(height(node.left),height(node.right));
+    }
+}
