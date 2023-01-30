@@ -1,0 +1,29 @@
+//binary tree paths
+class Solution {
+    public List<String> binaryTreePaths(TreeNode root) {
+        if(root==null) return null;
+           List<String> list=new ArrayList<String>();
+           String path=Integer.toString(root.val);
+           if(root.left==null&&root.right==null) {
+               list.add(path);
+               return list;
+           }
+           if(root.left!=null) orderpath(root.left,path,list);
+           if(root.right!=null )  orderpath(root.right,path,list);
+           return list;
+          }
+         public void orderpath(TreeNode node,String path,List<String> list)
+          {
+              path=path+"->"+node.val;
+              if(node.left==null&&node.right==null)  {
+                  list.add(path); 
+                  return ;
+              }
+               if(node.left!=null) orderpath(node.left,path,list);
+           if(node.right!=null )  orderpath(node.right,path,list);
+           
+
+
+          }
+    
+}
