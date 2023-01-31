@@ -1,0 +1,24 @@
+//construct binary tree from preorder and inorder treaversak
+class Solution {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        return binarytree(0,0,inorder.length-1,preorder,inorder);
+
+
+        }
+        public TreeNode binarytree(int prestart,int instart,int inend,int preorder[],int inorder[]){
+            if(prestart>preorder.length-1||instart>inend){
+                return null;
+            }
+            TreeNode node=new TreeNode(preorder[prestart]);
+            int index=0;
+            for(int i=instart;i<=inend;i++){
+            if(node.val==inorder[i])
+             index=i;
+            }
+            node.left=binarytree(prestart+1,instart,index-1,preorder,inorder);
+            node.right=binarytree(prestart+index-instart+1,index+1,inend,preorder,inorder);
+            return node;
+}
+
+    
+}
