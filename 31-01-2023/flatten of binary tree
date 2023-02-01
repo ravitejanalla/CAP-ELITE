@@ -1,0 +1,24 @@
+//flatten of binary tree
+class Solution {
+   
+    public void flatten(TreeNode root) {
+        if(root==null) return ;
+          TreeNode flat;
+   
+       if(root.left!=null){
+            TreeNode temp=root.right;
+       root.right=root.left;
+       root.left=null;
+       flat=root.right;
+   
+       while(flat.right!=null){
+           flat=flat.right;
+       }
+       flat.right=temp;
+       
+          }
+          flatten(root.right);
+
+        
+    }
+}
